@@ -1,13 +1,13 @@
-package controller.user;
+package pagemove;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 
-public class LoginPageController implements Controller {
+public class MainController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		return "login.jsp";
+		return "main.jsp";
 	}
 }

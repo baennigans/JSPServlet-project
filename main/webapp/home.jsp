@@ -63,7 +63,11 @@ h3 {
 
 #randomImage {
 	width: 500px;
-	margin-top: 100px;
+}
+
+#random {
+	color: rgb(49, 99, 238);
+	margin-top: 60px;
 }
 
 </style>
@@ -84,7 +88,7 @@ h3 {
 
     var alertParam = '<%= request.getParameter("login") %>';
     if (alertParam === "success") {
-        alert("로그인이 성공적으로 이루어졌습니다.");
+        alert("로그인 되었습니다.");
     }
 </script>
 </head>
@@ -104,7 +108,7 @@ h3 {
 				<a href="#">도서 대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">도서 등록/삭제</a>
+				<a href="insertBoardPage.do">도서 등록/삭제</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="#">회원관리</a>
@@ -113,6 +117,7 @@ h3 {
 				<a href="logout.do">로그아웃</a>
 			</div>
 		</div>
+		<h3 id="random">오늘의 한 줄</h3>
 		<img id="randomImage" alt="랜덤 이미지">
 	</div>
 </body>

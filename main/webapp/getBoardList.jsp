@@ -121,7 +121,7 @@ table td, table th {
 				<a href="#">도서 대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">도서 등록/삭제</a>
+				<a href="insertBoardPage.do">도서 등록/삭제</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="#">회원관리</a>

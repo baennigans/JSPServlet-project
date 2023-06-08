@@ -27,7 +27,10 @@ body {
 }
 
 .logo-img {
-	width: 300px;
+	width: 200px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
 }
 
 h1 {
@@ -36,7 +39,7 @@ h1 {
 }
 
 form {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 table {

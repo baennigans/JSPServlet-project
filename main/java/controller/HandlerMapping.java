@@ -10,12 +10,13 @@ import controller.board.InsertBoardController;
 import controller.board.OnlySearchBoardController;
 import controller.board.SearchBoardController;
 import controller.board.UpdateBoardController;
-import controller.user.HomeController;
 import controller.user.InsertUserController;
 import controller.user.LoginController;
-import controller.user.LoginPageController;
 import controller.user.LogoutController;
-import controller.user.MainController;
+import pagemove.HomeController;
+import pagemove.InsertBoardPageController;
+import pagemove.LoginPageController;
+import pagemove.MainController;
 
 public class HandlerMapping {
 	private Map<String, Controller> mappings;
@@ -24,7 +25,6 @@ public class HandlerMapping {
 		mappings = new HashMap<String, Controller>();
 		mappings.put("/insertUser.do", new InsertUserController());
 		mappings.put("/login.do", new LoginController());
-		mappings.put("/loginpage.do", new LoginPageController());
 		mappings.put("/logout.do", new LogoutController());
 		mappings.put("/insertBoard.do", new InsertBoardController());
 		mappings.put("/getBoardList.do", new GetBoardListController());
@@ -32,9 +32,12 @@ public class HandlerMapping {
 		mappings.put("/updateBoard.do", new UpdateBoardController());
 		mappings.put("/deleteBoard.do", new DeleteBoardController());
 		mappings.put("/searchBoard.do", new SearchBoardController());
+		
 		mappings.put("/main.do", new MainController());
 		mappings.put("/home.do", new HomeController());
 		mappings.put("/onlyBoardList.do", new OnlySearchBoardController());
+		mappings.put("/loginpage.do", new LoginPageController());
+		mappings.put("/insertBoardPage.do", new InsertBoardPageController());
 		
 	}
 
