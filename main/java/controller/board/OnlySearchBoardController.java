@@ -4,14 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import biz.board.BoardDAO;
 import biz.board.BoardVO;
-import biz.user.UserVO;
 import controller.Controller;
 
-public class SearchBoardController implements Controller {
+public class OnlySearchBoardController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		String writer = request.getParameter("writer");
@@ -23,6 +21,6 @@ public class SearchBoardController implements Controller {
 
 		request.setAttribute("boardList", boardList);
 		
-		return "getBoardList.jsp";
+		return "onlyBoardList.jsp";
 	}
 }

@@ -15,21 +15,10 @@ body {
 	padding: 20px;
 }
 
-#welcome {
-	position: absolute;
-	right: 60px;
-	color: rgb(49, 99, 238);
-}
-
 .container {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 20px;
 	text-align: center;
-}
-
-h3 {
-	margin-top: 20px;
-	font-size: 18px;
 }
 
 .logo-img {
@@ -39,29 +28,8 @@ h3 {
 	left: 50px;
 }
 
-.menu-bar {
-	display: flex;
-	justify-content: center;
-	margin-top:40px;
-}
-
-.menu-bar-item {
-	margin: 0 10px;
-}
-
-.menu-bar-item a {
-	display: inline-block;
-	padding: 8px 16px;
-	font-size: 16px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #fff;
-	background-color: #5696da;
-	border-radius: 4px;
-}
-
 .table-container {
-	margin-top: 60px;
+	margin-top: 130px;
 }
 
 table {
@@ -78,6 +46,7 @@ table td, table th {
 .table-title {
 	font-weight: bold;
 }
+
 
 .form-container {
 	margin-top: 20px;
@@ -106,30 +75,10 @@ table td, table th {
 </style>
 </head>
 <body>
-	<div id="welcome">
-		<h3>${user.name} 님 환영합니다.</h3>
-	</div>
 	<div class="container">
-		<a href="home.do">
+		<a href="main.do">
 			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
-		<div class="menu-bar">
-			<div class="menu-bar-item">
-				<a href="getBoardList.do">전체 도서 목록</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="#">도서 대여/반납</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="#">도서 등록/삭제</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="#">회원관리</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="logout.do">로그아웃</a>
-			</div>
-		</div>
 		<div class="table-container">
 			<table>
 				<tr>
@@ -152,7 +101,7 @@ table td, table th {
 		</div>
 		<hr />
 		<div class="form-container">
-			<form action="searchBoard.do" method="post">
+			<form action="onlyBoardList.do" method="post">
 				<input type="text" name="writer" placeholder="검색어를 입력하세요"> <input
 					type="submit" value="검색">
 			</form>

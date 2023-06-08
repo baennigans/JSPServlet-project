@@ -7,6 +7,7 @@ import controller.board.DeleteBoardController;
 import controller.board.GetBoardController;
 import controller.board.GetBoardListController;
 import controller.board.InsertBoardController;
+import controller.board.OnlySearchBoardController;
 import controller.board.SearchBoardController;
 import controller.board.UpdateBoardController;
 import controller.user.HomeController;
@@ -31,6 +32,7 @@ public class HandlerMapping {
 		mappings.put("/searchBoard.do", new SearchBoardController());
 		mappings.put("/main.do", new MainController());
 		mappings.put("/home.do", new HomeController());
+		mappings.put("/onlyBoardList.do", new OnlySearchBoardController());
 		
 	}
 

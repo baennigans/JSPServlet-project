@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>게시글 목록</title>
+<title>GH LIBRARY</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -23,6 +23,7 @@ body {
 .container {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 20px;
+	padding-bottom: 100px;
 	text-align: center;
 }
 
@@ -92,7 +93,7 @@ h3 {
 		</a>
 		<div class="menu-bar">
 			<div class="menu-bar-item">
-				<a href="#">전체 도서 목록</a>
+				<a href="getBoardList.do">전체 도서 목록</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="#">도서 대여/반납</a>

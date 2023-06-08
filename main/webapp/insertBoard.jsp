@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>GH LIBRARY</title>
 </head>
 <body>
 	<h1>새글 등록</h1>

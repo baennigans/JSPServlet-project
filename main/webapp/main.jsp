@@ -82,18 +82,21 @@ p {
 </head>
 <body>
 	<div class="container">
-		<a href="main.do">
-			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
+		<a href="main.do"> <img src="images/GHlogo.png" alt="도서관 로고"
+			class="logo-img">
 		</a>
 		<h1>GH 도서관에 오신 것을 환영합니다.</h1>
 		<p>Welcome to the GH Library.</p>
 		<div class="search-container">
-			<input type="text" name="writer" class="search-input" placeholder="검색어를 입력하세요">
-			<input type="submit" value="검색" class="search-button">
+			<form action="onlyBoardList.do" method="GET">
+				<input type="text" name="writer" class="search-input"
+					placeholder="검색어를 입력하세요"> <input type="submit" value="검색"
+					class="search-button">
+			</form>
 		</div>
 		<div class="button-container">
-			<a href="login.do" class="button">로그인</a>
-			<a href="insertUser.do" class="button">회원가입</a>
+			<a href="login.do" class="button">로그인</a> <a href="insertUser.do"
+				class="button">회원가입</a>
 		</div>
 	</div>
 </body>
