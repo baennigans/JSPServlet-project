@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -39,10 +38,11 @@ h3 {
 	left: 50px;
 }
 
+
 .menu-bar {
 	display: flex;
 	justify-content: center;
-	margin-top:40px;
+	margin-top: 40px;
 }
 
 .menu-bar-item {
@@ -60,54 +60,31 @@ h3 {
 	border-radius: 4px;
 }
 
-.table-container {
-	margin-top: 60px;
+#randomImage {
+	width: 500px;
+	margin-top: 100px;
 }
 
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-table td, table th {
-	padding: 8px;
-	border: 1px solid #ccc;
-	text-align: center;
-}
-
-.table-title {
-	font-weight: bold;
-}
-
-.form-container {
-	margin-top: 20px;
-}
-
-.form-container input[type="text"] {
-	width: 200px;
-	padding: 8px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-.form-container input[type="submit"] {
-	margin-left: 10px;
-	padding: 8px 16px;
-	font-size: 16px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #fff;
-	background-color: #007bff;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
 </style>
+<script>
+	window.onload = function() {
+		var imageUrls = [
+				"images/명언1.jpg",
+				"images/명언2.jpg",
+				"images/명언3.jpg",
+				"images/명언4.jpg",
+				"images/명언5.jpg",
+				"images/명언6.jpg"
+		];
+		var randomIndex = Math.floor(Math.random() * imageUrls.length);
+		var imageElement = document.getElementById("randomImage");
+		imageElement.src = imageUrls[randomIndex];
+	};
+</script>
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name} 님 환영합니다.</h3>
+		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
 		<a href="home.do">
@@ -130,33 +107,7 @@ table td, table th {
 				<a href="logout.do">로그아웃</a>
 			</div>
 		</div>
-		<div class="table-container">
-			<table>
-				<tr>
-					<th>No.</th>
-					<th>TITLE</th>
-					<th>WRITER</th>
-					<th>DATE</th>
-					<th>Hit</th>
-				</tr>
-				<c:forEach var="board" items="${boardList}">
-					<tr>
-						<td>${board.seq}</td>
-						<td><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
-						<td>${board.writer}</td>
-						<td>${board.regDate}</td>
-						<td>${board.hit}</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		<hr />
-		<div class="form-container">
-			<form action="searchBoard.do" method="post">
-				<input type="text" name="writer" placeholder="작성자를 입력하세요"> <input
-					type="submit" value="검색">
-			</form>
-		</div>
+		<img id="randomImage" alt="랜덤 이미지">
 	</div>
 </body>
 </html>

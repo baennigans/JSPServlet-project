@@ -9,6 +9,7 @@ import controller.board.GetBoardListController;
 import controller.board.InsertBoardController;
 import controller.board.SearchBoardController;
 import controller.board.UpdateBoardController;
+import controller.user.HomeController;
 import controller.user.InsertUserController;
 import controller.user.LoginController;
 import controller.user.LogoutController;
@@ -29,6 +30,8 @@ public class HandlerMapping {
 		mappings.put("/deleteBoard.do", new DeleteBoardController());
 		mappings.put("/searchBoard.do", new SearchBoardController());
 		mappings.put("/main.do", new MainController());
+		mappings.put("/home.do", new HomeController());
+		
 	}
 
 	public Controller getController(String path) {
