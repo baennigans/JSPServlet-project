@@ -81,6 +81,11 @@ h3 {
 		var imageElement = document.getElementById("randomImage");
 		imageElement.src = imageUrls[randomIndex];
 	};
+
+    var alertParam = '<%= request.getParameter("login") %>';
+    if (alertParam === "success") {
+        alert("로그인이 성공적으로 이루어졌습니다.");
+    }
 </script>
 </head>
 <body>

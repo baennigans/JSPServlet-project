@@ -36,7 +36,7 @@ h1 {
 }
 
 form {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 table {
@@ -70,6 +70,28 @@ a {
 	text-decoration: none;
 }
 </style>
+<script>
+	function checkForm() {
+		let id = document.getElementById("id")
+		if(id.value == '') {
+			alert('아이디를 입력하세요')
+			id.focus()
+			return false
+		}
+		let pw = document.getElementById("password");
+		if (pw.value == '') {
+			alert('비밀번호를 입력하세요')
+			password.focus()
+			return false
+		}
+		return true
+	}
+	
+	var alertParam = '<%= request.getParameter("login") %>';
+    if (alertParam === "failed") {
+        alert("로그인에 실패하였습니다.");
+    }
+</script>
 </head>
 <body>
 	<div class="container">
@@ -77,7 +99,8 @@ a {
 			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
 		<hr />
-		<form action="login.do" method="post">
+		<h2>GH도서관 회원 로그인</h2>
+		<form action="login.do" method="post" onsubmit="return checkForm()">
 			<table>
 				<tr>
 					<td>아이디</td>

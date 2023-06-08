@@ -81,6 +81,7 @@ a {
 			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
 		<hr />
+		<h2>GH도서관 회원가입</h2>
 		<form action="insertUser.do" method="post">
 			<table>
 				<tr>
@@ -106,7 +107,7 @@ a {
 				</tr>
 			</table>
 		</form>
-		<br /> <a href="login.do">로그인 화면으로 이동</a>
+		<br /> <a href="loginpage.do">로그인 화면으로 이동</a>
 	</div>
 </body>
 </html>

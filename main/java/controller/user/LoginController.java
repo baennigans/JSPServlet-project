@@ -23,9 +23,9 @@ public class LoginController implements Controller {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			return "home.jsp";
+			return "home.jsp?login=success";
 		} else {
-			return "login.jsp";
+			return "login.jsp?login=failed";
 		}
 	}
 }
