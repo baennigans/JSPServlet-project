@@ -149,7 +149,7 @@ h3 {
 <script>
 	function checkForm1() {
 		if (confirm("정보를 수정하시겠습니까?")) {
-			alert("수정되었습니다. 다시 로그인하세요.");
+			alert("정보가 수정되었습니다. 다시 로그인하세요.");
 			return true
 		} else {
 			alert("수정이 취소되었습니다.");
@@ -159,10 +159,10 @@ h3 {
 
 	function checkForm2() {
 		if (confirm("정말로 회원탈퇴 하시겠습니까?")) {
-			alert("탈퇴에 성공하였습니다. 안녕히가세요.")
+			alert("회원탈퇴 되었습니다. 안녕히가세요.")
 			return true
 		} else {
-			alert("탈퇴가 취소되었습니다.")
+			alert("회원탈퇴가 취소되었습니다.")
 			return false
 		}
 	}

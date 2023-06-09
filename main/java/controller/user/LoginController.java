@@ -2,6 +2,7 @@ package controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import biz.user.UserDAO;
 import biz.user.UserVO;
@@ -20,6 +21,8 @@ public class LoginController implements Controller {
 		UserVO user = dao.getUser(vo);
 
 		if (user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 			return "home.jsp?login=success";
 		} else {
 			return "login.jsp?login=failed";
