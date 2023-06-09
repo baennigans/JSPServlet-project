@@ -10,9 +10,11 @@ import controller.book.InsertBookController;
 import controller.book.OnlySearchBookController;
 import controller.book.SearchBookController;
 import controller.book.UpdateBookController;
+import controller.user.GetUserListController;
 import controller.user.InsertUserController;
 import controller.user.LoginController;
 import controller.user.LogoutController;
+import controller.user.UpdateUserController;
 import pagemove.HomeController;
 import pagemove.InsertBookPageController;
 import pagemove.LoginPageController;
@@ -33,13 +35,16 @@ public class HandlerMapping {
 		mappings.put("/updateBook.do", new UpdateBookController());
 		mappings.put("/deleteBook.do", new DeleteBookController());
 		mappings.put("/searchBook.do", new SearchBookController());
-		
+
 		mappings.put("/main.do", new MainController());
 		mappings.put("/home.do", new HomeController());
 		mappings.put("/onlyBookList.do", new OnlySearchBookController());
 		mappings.put("/loginpage.do", new LoginPageController());
 		mappings.put("/insertBookPage.do", new InsertBookPageController());
 		mappings.put("/myPage.do", new MyPageController());
+		mappings.put("/updateUser.do", new UpdateUserController());
+		mappings.put("/deleteBook.do", new DeleteBookController());
+		mappings.put("/getUserList.do", new GetUserListController());
 		
 	}
 

@@ -17,7 +17,7 @@ public class BookDAO {
 			+ "((select nvl(max(seq),0)+1, from book), ?, ?, ?, ?, ?)";
 	private static String BOOK_LIST = "select * from book";
 	private static String BOOK_UPDATE = "update book set isbn=?, title=?, writer=?, publisher=?, count=? where seq=?";
-	private static String BOOK_DELETE = "delete book where seq=?";
+	private static String BOOK_DELETE = "delete book where isbn=?";
 	private static String BOOK_GET = "select * from book where seq=?";
 	private static String BOOK_SEARCH = "select * from book where title=?";
 
@@ -84,7 +84,7 @@ public class BookDAO {
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOOK_DELETE);
-			stmt.setInt(1, vo.getSeq());
+			stmt.setString(1, vo.getIsbn());
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

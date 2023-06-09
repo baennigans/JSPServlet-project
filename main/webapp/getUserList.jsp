@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,6 @@ body {
 .container {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 20px;
-	padding-bottom: 100px;
 	text-align: center;
 }
 
@@ -38,7 +38,6 @@ h3 {
 	top: 50px;
 	left: 50px;
 }
-
 
 .menu-bar {
 	display: flex;
@@ -61,44 +60,48 @@ h3 {
 	border-radius: 4px;
 }
 
-#randomImage {
-	width: 500px;
+.table-container {
+	width: 60%;
+	margin: 60px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-#random {
-	color: rgb(49, 99, 238);
-	margin-top: 60px;
+table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+	font-family: "Arial", sans-serif;
+}
+
+table td {
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align: center;
+	background-color: #fff;
+}
+
+table th {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 18px;
+	border: 1px solid #ccc;
+	text-align: center;
+	background-color: #5696da;
 }
 
 </style>
-<script>
-	window.onload = function() {
-		var imageUrls = [
-				"images/명언1.jpg",
-				"images/명언2.jpg",
-				"images/명언3.jpg",
-				"images/명언4.jpg",
-				"images/명언5.jpg",
-				"images/명언6.jpg"
-		];
-		var randomIndex = Math.floor(Math.random() * imageUrls.length);
-		var imageElement = document.getElementById("randomImage");
-		imageElement.src = imageUrls[randomIndex];
-	};
-
-    var alertParam = '<%= request.getParameter("login") %>';
-    if (alertParam === "success") {
-        alert("로그인 되었습니다.");
-    }
-</script>
 </head>
 <body>
 	<div id="welcome">
 		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
-		<a href="home.do">
-			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
+		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
+			class="logo-img">
 		</a>
 		<div class="menu-bar">
 			<div class="menu-bar-item">
@@ -120,8 +123,25 @@ h3 {
 				<a href="getUserList.do">회원관리</a>
 			</div>
 		</div>
-		<h3 id="random">오늘의 한 줄</h3>
-		<img id="randomImage" alt="랜덤 이미지">
+		<div class="table-container">
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>비밀번호</th>
+					<th>이름</th>
+					<th>권한</th>
+				</tr>
+				<c:forEach var="user" items="${userList}">
+					<tr>
+						<td>${user.id}</td>
+						<td>${user.password}</td>
+						<td>${user.name}</td>
+						<td>${user.role}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+		<hr />
 	</div>
 </body>
 </html>

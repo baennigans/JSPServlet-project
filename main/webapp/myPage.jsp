@@ -118,10 +118,21 @@ h3 {
 	padding-bottom: 30px;
 }
 </style>
+<script>
+function checkForm() {
+	if(confirm("정보를 수정하시겠습니까?")){
+	    alert("수정 되었습니다.");
+	    return true
+	}else{
+	    alert("수정이 취소되었습니다.");
+	    return false
+	}
+}
+</script>
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name} 님 환영합니다.</h3>
+		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
 		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
@@ -132,26 +143,31 @@ h3 {
 				<a href="getBookList.do">전체 도서 목록</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">도서 대여/반납</a>
+				<a href="#">대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="insertBookPage.do">도서 등록/삭제</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="myPage.do">회원관리</a>
+				<a href="myPage.do">마이페이지</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>
+			</div>
+			<div class="menu-bar-item">
+				<a href="insertBookPage.do">도서등록/삭제</a>
+			</div>
+			<div class="menu-bar-item">
+				<a href="getUserList.do">회원관리</a>
 			</div>
 		</div>
 		<div class="form-container">
 			<h1>마이페이지</h1>
 			<hr/>
-			<form action="home.do" method="post">
+			<form action="updateUser.do" method="post" onsubmit="return checkForm()">
+				<input type="hidden" name="id" value="${user.id}"/>
+				<input type="hidden" name="role" value="${user.role}"/>
 				<table class="mypage-table">
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" name="id" value="${user.id}" disabled /></td>
+						<td><input type="text" value="${user.id}" disabled /></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>

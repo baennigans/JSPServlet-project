@@ -42,7 +42,7 @@ h3 {
 .menu-bar {
 	display: flex;
 	justify-content: center;
-	margin-top:40px;
+	margin-top: 40px;
 }
 
 .menu-bar-item {
@@ -65,18 +65,28 @@ h3 {
 }
 
 table {
+	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
+	font-family: "Arial", sans-serif;
 }
 
-table td, table th {
-	padding: 8px;
+table td {
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px;
 	border: 1px solid #ccc;
 	text-align: center;
+	background-color: #fff;
 }
 
-.table-title {
+table th {
+	font-size: 14px;
 	font-weight: bold;
+	padding: 18px;
+	border: 1px solid #ccc;
+	text-align: center;
+	background-color: #5696da;
 }
 
 .form-container {
@@ -107,33 +117,36 @@ table td, table th {
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name} 님 환영합니다.</h3>
+		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
-		<a href="home.do">
-			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
+		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
+			class="logo-img">
 		</a>
 		<div class="menu-bar">
 			<div class="menu-bar-item">
 				<a href="getBookList.do">전체 도서 목록</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">도서 대여/반납</a>
+				<a href="#">대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="insertBookPage.do">도서 등록/삭제</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="myPage.do">회원관리</a>
+				<a href="myPage.do">마이페이지</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>
+			</div>
+			<div class="menu-bar-item">
+				<a href="insertBookPage.do">도서등록/삭제</a>
+			</div>
+			<div class="menu-bar-item">
+				<a href="getUserList.do">회원관리</a>
 			</div>
 		</div>
 		<div class="table-container">
 			<table>
 				<tr>
-				<th>No.</th>
+					<th>No.</th>
 					<th>ISBN</th>
 					<th>제목</th>
 					<th>저자</th>

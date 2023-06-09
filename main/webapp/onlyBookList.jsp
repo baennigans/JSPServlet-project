@@ -33,21 +33,29 @@ body {
 }
 
 table {
+	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
+	font-family: "Arial", sans-serif;
 }
 
-table td, table th {
-	padding: 8px;
+table td {
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px;
 	border: 1px solid #ccc;
 	text-align: center;
+	background-color: #fff;
 }
 
-.table-title {
+table th {
+	font-size: 14px;
 	font-weight: bold;
+	padding: 18px;
+	border: 1px solid #ccc;
+	text-align: center;
+	background-color: #5696da;
 }
-
-
 .form-container {
 	margin-top: 20px;
 }

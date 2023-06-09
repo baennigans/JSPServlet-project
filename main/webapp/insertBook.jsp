@@ -66,9 +66,11 @@ h3 {
 }
 
 .form-container {
-	width: 400px;
-	margin: 0 auto;
+	display: inline-block;
+	vertical-align: top;
 	margin-top: 100px;
+	margin-right: 60px;
+	width: 400px;
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -98,6 +100,7 @@ h3 {
 
 .form-container input[type="submit"] {
 	padding: 8px 16px;
+	margin-top: 20px;
 	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
@@ -112,16 +115,46 @@ h3 {
 	background-color: #417cb8;
 }
 
-.insertbook-table{
-	padding-top: 40px;
+.insertbook-table {
+	padding-top: 20px;
 	padding-bottom: 30px;
 }
+
+.deletetbook-table {
+	padding-top: 130px;
+	padding-bottom: 40px;
+}
+
+#delete {
+	margin-top: 120px;
+}
 </style>
+<script>
+	function checkForm1() {
+		if (confirm("책을 등록하시겠습니까?")) {
+			alert("등록 되었습니다.");
+			return true
+		} else {
+			alert("등록이 취소되었습니다.");
+			return false
+		}
+	}
+
+	function checkForm2() {
+		if (confirm("정말 삭제하시겠습니까?")) {
+			alert("삭제 되었습니다.");
+			return true
+		} else {
+			alert("삭제가 취소되었습니다.");
+			return false
+		}
+	}
+</script>
 
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name} 님 환영합니다.</h3>
+		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
 		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
@@ -132,22 +165,26 @@ h3 {
 				<a href="getBookList.do">전체 도서 목록</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">도서 대여/반납</a>
+				<a href="#">대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="insertBookPage.do">도서 등록/삭제</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="myPage.do">회원관리</a>
+				<a href="myPage.do">마이페이지</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>
+			</div>
+			<div class="menu-bar-item">
+				<a href="insertBookPage.do">도서등록/삭제</a>
+			</div>
+			<div class="menu-bar-item">
+				<a href="getUserList.do">회원관리</a>
 			</div>
 		</div>
 		<div class="form-container">
 			<h1>도서 등록</h1>
 			<hr />
-			<form action="insertBook.do" method="post">
+			<form action="insertBook.do" method="post"
+				onsubmit="return checkForm1()">
 				<table class="insertbook-table">
 					<tr>
 						<td>ISBN</td>
@@ -171,6 +208,22 @@ h3 {
 					</tr>
 					<tr>
 						<td colspan="2"><input type="submit" value="등록" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div class="form-container">
+			<h1>도서 삭제</h1>
+			<hr />
+			<form action="deleteBook.do" method="post"
+				onsubmit="return checkForm2()">
+				<table class="deletetbook-table">
+					<tr>
+						<td>ISBN</td>
+						<td><input type="text" name="isbn" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="삭제" id="delete" /></td>
 					</tr>
 				</table>
 			</form>
