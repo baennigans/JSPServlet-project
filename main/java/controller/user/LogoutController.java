@@ -11,6 +11,7 @@ public class LogoutController implements Controller {
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
+		
 		return "main.jsp";
 	}
 }

@@ -97,8 +97,8 @@ h3 {
 }
 
 .form-container input[type="submit"] {
-	margin-top: 50px;
-	padding: 8px 16px;
+	margin-top: 30px;
+	padding: 15px 18px;
 	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
@@ -115,18 +115,43 @@ h3 {
 
 .mypage-table{
 	padding-top: 40px;
-	padding-bottom: 30px;
+}
+
+#deleteUser{
+	width: 100%;
+	padding: 15px;
+	margin-top: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
 }
 </style>
 <script>
 function checkForm() {
 	if(confirm("정보를 수정하시겠습니까?")){
-	    alert("수정 되었습니다.");
+	    alert("수정되었습니다.");
 	    return true
 	}else{
 	    alert("수정이 취소되었습니다.");
 	    return false
 	}
+}
+
+function deleteUser() {
+    if (confirm("정말로 회원탈퇴 하시겠습니까?")) {
+        var form = document.createElement("form");
+        form.action = "deleteUser.do";
+        form.method = "post";
+        document.body.appendChild(form);
+        form.submit();
+    	alert("탈퇴에 성공하였습니다. 안녕히가세요.")
+    }else{
+    	alert("탈퇴가 취소되었습니다.")
+    }
 }
 </script>
 </head>
@@ -182,10 +207,11 @@ function checkForm() {
 						<td><input type="text" name="role" value="${user.role}" disabled /></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" value="수정" /></td>
+						<td colspan="2"><input type="submit" value="정보 수정" /></td>
 					</tr>
 				</table>
 			</form>
+    		<input type="button" value="회원탈퇴" id="deleteUser" onclick="deleteUser()" />
 		</div>
 	</div>
 </body>

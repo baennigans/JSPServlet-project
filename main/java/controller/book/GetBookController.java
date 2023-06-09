@@ -18,6 +18,7 @@ public class GetBookController implements Controller {
 		BookVO book = dao.getBook(vo);
 
 		request.setAttribute("book", book);
+		
 		return "getBook.jsp";
 	}
 }

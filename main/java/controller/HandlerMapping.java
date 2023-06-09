@@ -10,6 +10,7 @@ import controller.book.InsertBookController;
 import controller.book.OnlySearchBookController;
 import controller.book.SearchBookController;
 import controller.book.UpdateBookController;
+import controller.user.DeleteUserController;
 import controller.user.GetUserListController;
 import controller.user.InsertUserController;
 import controller.user.LoginController;
@@ -45,6 +46,7 @@ public class HandlerMapping {
 		mappings.put("/updateUser.do", new UpdateUserController());
 		mappings.put("/deleteBook.do", new DeleteBookController());
 		mappings.put("/getUserList.do", new GetUserListController());
+		mappings.put("/deleteUser.do", new DeleteUserController());
 		
 	}
 

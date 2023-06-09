@@ -1,14 +1,20 @@
-package pagemove;
+package controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 
-public class MyPageController implements Controller {
+public class DeleteUserController implements Controller {
+
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "myPage.jsp";
+		
+		
+		
+		
+		return null;
 	}
+
 }

@@ -8,6 +8,7 @@ import controller.Controller;
 public class InsertBookPageController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		
 		return "insertBook.jsp";
 	}
 }
