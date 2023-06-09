@@ -13,13 +13,16 @@ public class BookDAO {
 	private PreparedStatement stmt;
 	private ResultSet rs;
 
-	private static String BOOK_INSERT = "insert into book(seq, isbn, title, writer, publisher, count) values"
-			+ "((select nvl(max(seq),0)+1, from book), ?, ?, ?, ?, ?)";
-	private static String BOOK_GET = "select * from book where seq=?";
-	private static String BOOK_LIST = "select * from book";
-	private static String BOOK_UPDATE = "update book set isbn=?, title=?, writer=?, publisher=?, count=? where seq=?";
-	private static String BOOK_DELETE = "delete book where isbn=?";
-	private static String BOOK_SEARCH = "select * from book where title=?";
+	private static String BOOK_INSERT = "insert into book(seq, isbn, title, writer, publisher, count) values "
+			+ "((select nvl(max(seq),0)+1, from book), ?, ?, ?, ?, ?) ";
+	private static String BOOK_GET = "select * from book where seq=? ";
+	private static String BOOK_LIST = "select * from book ";
+	private static String BOOK_UPDATE = "update book set isbn=?, title=?, writer=?, publisher=?, count=? where seq=? ";
+	private static String BOOK_DELETE = "delete book where isbn=? ";
+	private static String BOOK_SEARCH_ISBN = "select * from book where isbn=? ";
+	private static String BOOK_SEARCH_TITLE = "select * from book where title=? ";
+	private static String BOOK_SEARCH_WRITER = "select * from book where writer=? ";
+	private static String BOOK_SEARCH_PUBLISHER = "select * from book where publisher=? ";
 
 	public void insertBook(BookVO vo) {
 		try {
@@ -118,12 +121,87 @@ public class BookDAO {
 		return book;
 	}
 
-	public List<BookVO> SearchBookList(BookVO vo) {
+	public List<BookVO> SearchBookList1(BookVO vo) {
 		List<BookVO> bookList = new ArrayList<BookVO>();
 		try {
 			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(BOOK_SEARCH);
+			stmt = conn.prepareStatement(BOOK_SEARCH_ISBN);			
+			stmt.setString(1, vo.getIsbn());
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				BookVO book = new BookVO();
+				book.setSeq(rs.getInt("SEQ"));
+				book.setIsbn(rs.getString("ISBN"));
+				book.setTitle(rs.getString("Title"));
+				book.setWriter(rs.getString("WRITER"));
+				book.setPublisher(rs.getString("PUBLISHER"));
+				book.setCount(rs.getInt("COUNT"));
+				bookList.add(book);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return bookList;
+	}
+	
+	public List<BookVO> SearchBookList2(BookVO vo) {
+		List<BookVO> bookList = new ArrayList<BookVO>();
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOOK_SEARCH_TITLE);		
 			stmt.setString(1, vo.getTitle());
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				BookVO book = new BookVO();
+				book.setSeq(rs.getInt("SEQ"));
+				book.setIsbn(rs.getString("ISBN"));
+				book.setTitle(rs.getString("Title"));
+				book.setWriter(rs.getString("WRITER"));
+				book.setPublisher(rs.getString("PUBLISHER"));
+				book.setCount(rs.getInt("COUNT"));
+				bookList.add(book);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return bookList;
+	}
+	
+	public List<BookVO> SearchBookList3(BookVO vo) {
+		List<BookVO> bookList = new ArrayList<BookVO>();
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOOK_SEARCH_WRITER);	
+			stmt.setString(1, vo.getWriter());
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				BookVO book = new BookVO();
+				book.setSeq(rs.getInt("SEQ"));
+				book.setIsbn(rs.getString("ISBN"));
+				book.setTitle(rs.getString("Title"));
+				book.setWriter(rs.getString("WRITER"));
+				book.setPublisher(rs.getString("PUBLISHER"));
+				book.setCount(rs.getInt("COUNT"));
+				bookList.add(book);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return bookList;
+	}
+	
+	public List<BookVO> SearchBookList4(BookVO vo) {
+		List<BookVO> bookList = new ArrayList<BookVO>();
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOOK_SEARCH_PUBLISHER);		
+			stmt.setString(1, vo.getPublisher());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				BookVO book = new BookVO();

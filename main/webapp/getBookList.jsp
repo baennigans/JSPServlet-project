@@ -183,7 +183,7 @@ table th {
 		<hr />
 		<div class="form-container">
 			<form action="searchBook.do" method="post">
-				<input type="text" name="title" placeholder="검색어를 입력하세요"> <input type="submit" value="검색">
+				<input type="text" name="word" placeholder="검색어를 입력하세요"> <input type="submit" value="검색">
 			</form>
 		</div>
 	</div>
