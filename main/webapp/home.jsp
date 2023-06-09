@@ -94,7 +94,7 @@ h3 {
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name}님 환영합니다.</h3>
+		<h3>${user.name} 님 환영합니다.</h3>
 	</div>
 	<div class="container">
 		<a href="home.do">
@@ -111,7 +111,7 @@ h3 {
 				<a href="insertBoardPage.do">도서 등록/삭제</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">회원관리</a>
+				<a href="myPage.do">회원관리</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>

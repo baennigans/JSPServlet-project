@@ -17,6 +17,7 @@ import pagemove.HomeController;
 import pagemove.InsertBoardPageController;
 import pagemove.LoginPageController;
 import pagemove.MainController;
+import pagemove.MyPageController;
 
 public class HandlerMapping {
 	private Map<String, Controller> mappings;
@@ -38,6 +39,7 @@ public class HandlerMapping {
 		mappings.put("/onlyBoardList.do", new OnlySearchBoardController());
 		mappings.put("/loginpage.do", new LoginPageController());
 		mappings.put("/insertBoardPage.do", new InsertBoardPageController());
+		mappings.put("/myPage.do", new MyPageController());
 		
 	}
 

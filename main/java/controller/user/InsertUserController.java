@@ -27,7 +27,7 @@ public class InsertUserController implements Controller {
 		if(id==null) {
 			return "insertUser.jsp";			
 		} else {
-			return "login.jsp";
+			return "login.jsp?insert=success";
 		}
 	}
 }

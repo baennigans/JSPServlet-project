@@ -124,7 +124,7 @@ table td, table th {
 				<a href="insertBoardPage.do">도서 등록/삭제</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">회원관리</a>
+				<a href="myPage.do">회원관리</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>

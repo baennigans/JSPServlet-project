@@ -97,6 +97,7 @@ h3 {
 }
 
 .form-container input[type="submit"] {
+	margin-top: 50px;
 	padding: 8px 16px;
 	font-size: 16px;
 	font-weight: bold;
@@ -112,16 +113,15 @@ h3 {
 	background-color: #417cb8;
 }
 
-.insertboard-table{
+.mypage-table{
 	padding-top: 40px;
 	padding-bottom: 30px;
 }
 </style>
-
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name}님 환영합니다.</h3>
+		<h3>${user.name} 님 환영합니다.</h3>
 	</div>
 	<div class="container">
 		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
@@ -145,24 +145,28 @@ h3 {
 			</div>
 		</div>
 		<div class="form-container">
-			<h1>도서 등록</h1>
-			<hr />
-			<form action="insertBoard.do" method="post">
-				<table class="insertboard-table">
+			<h1>마이페이지</h1>
+			<hr/>
+			<form action="home.do" method="post">
+				<table class="mypage-table">
 					<tr>
-						<td>제목</td>
-						<td><input type="text" name="title" /></td>
+						<td>아이디</td>
+						<td><input type="text" name="id" value="${user.id}" disabled /></td>
 					</tr>
 					<tr>
-						<td>작성자</td>
-						<td><input type="text" name="writer" /></td>
+						<td>비밀번호</td>
+						<td><input type="text" name="password" value="${user.password}" /></td>
 					</tr>
 					<tr>
-						<td>글 내용</td>
-						<td><textarea name="content" cols="40" rows="10"></textarea></td>
+						<td>이름</td>
+						<td><input type="text" name="name" value="${user.name}" /></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" value="등록" /></td>
+						<td>권한</td>
+						<td><input type="text" name="role" value="${user.role}" disabled /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="수정" /></td>
 					</tr>
 				</table>
 			</form>

@@ -27,10 +27,7 @@ body {
 }
 
 .logo-img {
-	width: 200px;
-	position: absolute;
-	top: 50px;
-	left: 50px;
+	width: 300px;
 }
 
 h1 {

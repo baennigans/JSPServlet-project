@@ -87,9 +87,13 @@ a {
 		return true
 	}
 	
-	var alertParam = '<%= request.getParameter("login") %>';
-    if (alertParam === "failed") {
+	var alertParam1 = '<%= request.getParameter("login") %>';
+    if (alertParam1 === "failed") {
         alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+    }
+	var alertParam2 = '<%= request.getParameter("insert") %>';
+    if (alertParam2 === "success") {
+        alert("회원가입이 완료되었습니다.");
     }
 </script>
 </head>
