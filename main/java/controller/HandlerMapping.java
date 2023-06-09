@@ -15,6 +15,7 @@ import controller.user.GetUserListController;
 import controller.user.InsertUserController;
 import controller.user.LoginController;
 import controller.user.LogoutController;
+import controller.user.MyInfoController;
 import controller.user.UpdateUserController;
 import pagemove.HomeController;
 import pagemove.InsertBookPageController;
@@ -47,7 +48,8 @@ public class HandlerMapping {
 		mappings.put("/deleteBook.do", new DeleteBookController());
 		mappings.put("/getUserList.do", new GetUserListController());
 		mappings.put("/deleteUser.do", new DeleteUserController());
-		
+		mappings.put("/myInfo.do", new MyInfoController());
+
 	}
 
 	public Controller getController(String path) {

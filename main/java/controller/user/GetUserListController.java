@@ -9,7 +9,7 @@ import biz.user.UserDAO;
 import biz.user.UserVO;
 import controller.Controller;
 
-public class GetUserListController implements Controller{
+public class GetUserListController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		UserVO vo = new UserVO();

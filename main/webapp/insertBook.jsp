@@ -65,6 +65,18 @@ h3 {
 	border-radius: 4px;
 }
 
+.menu-bar-item2 a {
+	margin: 0 10px;
+	display: inline-block;
+	padding: 8px 16px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	background-color: red;
+	border-radius: 4px;
+}
+
 .form-container {
 	display: inline-block;
 	vertical-align: top;
@@ -129,6 +141,7 @@ h3 {
 	margin-top: 120px;
 }
 </style>
+
 <script>
 	function checkForm1() {
 		if (confirm("책을 등록하시겠습니까?")) {
@@ -150,8 +163,8 @@ h3 {
 		}
 	}
 </script>
-
 </head>
+
 <body>
 	<div id="welcome">
 		<h3>${user.name}님 환영합니다.</h3>
@@ -173,18 +186,19 @@ h3 {
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>
 			</div>
-			<div class="menu-bar-item">
-				<a href="insertBookPage.do">도서등록/삭제</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="getUserList.do">회원관리</a>
-			</div>
+			<c:if test="${user.role eq 'Admin'}">
+				<div class="menu-bar-item2">
+					<a href="insertBookPage.do">도서등록/삭제</a>
+				</div>
+				<div class="menu-bar-item2">
+					<a href="getUserList.do">회원관리</a>
+				</div>
+			</c:if>
 		</div>
 		<div class="form-container">
 			<h1>도서 등록</h1>
 			<hr />
-			<form action="insertBook.do" method="post"
-				onsubmit="return checkForm1()">
+			<form action="insertBook.do" method="post" onsubmit="return checkForm1()">
 				<table class="insertbook-table">
 					<tr>
 						<td>ISBN</td>
@@ -215,8 +229,7 @@ h3 {
 		<div class="form-container">
 			<h1>도서 삭제</h1>
 			<hr />
-			<form action="deleteBook.do" method="post"
-				onsubmit="return checkForm2()">
+			<form action="deleteBook.do" method="post" onsubmit="return checkForm2()">
 				<table class="deletetbook-table">
 					<tr>
 						<td>ISBN</td>

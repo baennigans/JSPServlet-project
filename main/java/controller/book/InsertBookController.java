@@ -22,7 +22,7 @@ public class InsertBookController implements Controller {
 		vo.setWriter(writer);
 		vo.setPublisher(publisher);
 		vo.setCount(count);
-		
+
 		BookDAO dao = new BookDAO();
 		dao.insertBook(vo);
 

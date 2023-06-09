@@ -109,7 +109,7 @@ h3 {
 }
 
 .form-container input[type="submit"] {
-	margin-top: 110px;
+	margin-top: 30px;
 	padding: 15px 18px;
 	font-size: 16px;
 	font-weight: bold;
@@ -126,15 +126,45 @@ h3 {
 }
 
 .mypage-table {
-	padding-top: 135px;
-	padding-bottom: 30px;
+	padding-top: 40px;
+}
+
+#deleteUser {
+	width: 100%;
+	padding: 15px;
+	margin-top: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	font-weight: bold;
+	text-decoration: none;
+	text-decoration: none;
 }
 </style>
 
 <script>
-	var alertParam = '<%= request.getParameter("password") %>';
-	if (alertParam === "failed") {
-    	alert("비밀번호가 일치하지 않습니다.");
+	function checkForm1() {
+		if (confirm("정보를 수정하시겠습니까?")) {
+			alert("수정되었습니다. 다시 로그인하세요.");
+			return true
+		} else {
+			alert("수정이 취소되었습니다.");
+			return false
+		}
+	}
+
+	function checkForm2() {
+		if (confirm("정말로 회원탈퇴 하시겠습니까?")) {
+			alert("탈퇴에 성공하였습니다. 안녕히가세요.")
+			return true
+		} else {
+			alert("탈퇴가 취소되었습니다.")
+			return false
+		}
 	}
 </script>
 </head>
@@ -144,8 +174,7 @@ h3 {
 		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
-		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
-			class="logo-img">
+		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
 		<div class="menu-bar">
 			<div class="menu-bar-item">
@@ -170,20 +199,37 @@ h3 {
 			</c:if>
 		</div>
 		<div class="form-container">
-			<h1>비밀번호 확인</h1>
+			<h1>마이페이지</h1>
 			<hr />
-			<form action="myInfo.do" method="post"
-				onsubmit="return checkForm1()">
+			<form action="updateUser.do" method="post" onsubmit="return checkForm1()">
 				<input type="hidden" name="id" value="${user.id}" />
+				<input type="hidden" name="role" value="${user.role}" />
 				<table class="mypage-table">
 					<tr>
-						<td>비밀번호</td>
-						<td><input type="text" name="password"/></td>
+						<td>아이디</td>
+						<td><input type="text" value="${user.id}" disabled /></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" value="확인" /></td>
+						<td>비밀번호</td>
+						<td><input type="text" name="password" value="${user.password}" /></td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td><input type="text" name="name" value="${user.name}" /></td>
+					</tr>
+					<tr>
+						<td>권한</td>
+						<td><input type="text" name="role" value="${user.role}"
+							disabled /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="정보 수정" /></td>
 					</tr>
 				</table>
+			</form>
+			<form action="deleteUser.do" method="post" onsubmit="return checkForm2()">
+				<input type="hidden" name="id" value="${user.id}" />
+				<input type="submit" value="회원탈퇴" id="deleteUser" />
 			</form>
 		</div>
 	</div>

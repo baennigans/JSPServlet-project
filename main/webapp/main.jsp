@@ -80,6 +80,7 @@ p {
 }
 </style>
 </head>
+
 <body>
 	<div class="container">
 		<a href="main.do"> <img src="images/GHlogo.png" alt="도서관 로고"
@@ -95,8 +96,8 @@ p {
 			</form>
 		</div>
 		<div class="button-container">
-			<a href="loginpage.do" class="button">로그인</a> <a href="insertUser.do"
-				class="button">회원가입</a>
+			<a href="loginpage.do" class="button">로그인</a>
+			<a href="insertUser.do" class="button">회원가입</a>
 		</div>
 	</div>
 </body>

@@ -70,6 +70,7 @@ a {
 	text-decoration: none;
 }
 </style>
+
 <script>
 	function checkForm() {
 		let id = document.getElementById("id")
@@ -87,20 +88,21 @@ a {
 		return true
 	}
 	
-	var alertParam1 = '<%= request.getParameter("login") %>';
+	var alertParam1 = '<%=request.getParameter("login")%>';
     if (alertParam1 === "failed") {
         alert("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
-	var alertParam2 = '<%= request.getParameter("insert") %>';
-    if (alertParam2 === "success") {
-        alert("회원가입이 완료되었습니다.");
-    }
+    
+	var alertParam2 = '<%=request.getParameter("insert")%>';
+	if (alertParam2 === "success") {
+		alert("회원가입이 완료되었습니다.");
+	}
 </script>
 </head>
+
 <body>
 	<div class="container">
-		<a href="main.do">
-			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
+		<a href="main.do"> <img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
 		<hr />
 		<h2>GH도서관 로그인</h2>

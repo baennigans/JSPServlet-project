@@ -18,7 +18,7 @@ public class UserDAO {
 	private static String USER_LIST = "select * from users";
 	private static String USER_UPDATE = "update users set password=?, name=?, role=? where id=?";
 	private static String USER_DELETE = "delete users where id=?";
-	
+
 	private static String USER_GET = "select * from users where id=? and password=?";
 
 	public void insertUser(UserVO vo) {

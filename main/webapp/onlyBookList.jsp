@@ -56,6 +56,7 @@ table th {
 	text-align: center;
 	background-color: #5696da;
 }
+
 .form-container {
 	margin-top: 20px;
 }
@@ -82,10 +83,11 @@ table th {
 }
 </style>
 </head>
+
 <body>
 	<div class="container">
-		<a href="main.do">
-			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
+		<a href="main.do"> <img src="images/GHlogo.png" alt="도서관 로고"
+			class="logo-img">
 		</a>
 		<div class="table-container">
 			<table>
@@ -96,7 +98,6 @@ table th {
 					<th>저자</th>
 					<th>출판사</th>
 					<th>대여가능</th>
-					
 				</tr>
 				<c:forEach var="book" items="${bookList}">
 					<tr>
@@ -113,8 +114,7 @@ table th {
 		<hr />
 		<div class="form-container">
 			<form action="onlyBookList.do" method="post">
-				<input type="text" name="title" placeholder="검색어를 입력하세요"> <input
-					type="submit" value="검색">
+				<input type="text" name="title" placeholder="검색어를 입력하세요"> <input type="submit" value="검색">
 			</form>
 		</div>
 	</div>

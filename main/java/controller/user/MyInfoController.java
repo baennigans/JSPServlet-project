@@ -7,23 +7,23 @@ import biz.user.UserDAO;
 import biz.user.UserVO;
 import controller.Controller;
 
-public class UpdateUserController implements Controller {
+public class MyInfoController implements Controller {
+
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		String name = request.getParameter("name");
-		String role = request.getParameter("role");
-
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		vo.setPassword(password);
-		vo.setName(name);
-		vo.setRole(role);
 
 		UserDAO dao = new UserDAO();
-		dao.updateUser(vo);
+		UserVO user = dao.getUser(vo);
 
-		return "main.do";
+		if (user != null) {
+			return "myInfo.jsp";
+		} else {
+			return "myPage.jsp?password=failed";
+		}
 	}
 }

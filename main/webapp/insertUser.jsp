@@ -75,10 +75,11 @@ a {
 }
 </style>
 </head>
+
 <body>
 	<div class="container">
-		<a href="main.do">
-			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
+		<a href="main.do"> <img src="images/GHlogo.png" alt="도서관 로고"
+			class="logo-img">
 		</a>
 		<hr />
 		<h2>GH도서관 회원가입</h2>
@@ -98,9 +99,10 @@ a {
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="radio" name="role" value="Admin"
-						checked="checked" /> 관리자 <input type="radio" name="role"
-						value="User" id="role" /> 사용자</td>
+					<td>
+						<input type="radio" name="role" value="Admin" checked="checked" /> 관리자
+						<input type="radio" name="role" value="User" id="role" /> 사용자
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="회원가입" id="insertUser" />

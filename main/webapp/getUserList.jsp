@@ -60,6 +60,18 @@ h3 {
 	border-radius: 4px;
 }
 
+.menu-bar-item2 a {
+	margin: 0 10px;
+	display: inline-block;
+	padding: 8px 16px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	background-color: red;
+	border-radius: 4px;
+}
+
 .table-container {
 	width: 60%;
 	margin: 60px auto;
@@ -86,22 +98,22 @@ table td {
 
 table th {
 	font-size: 14px;
-	font-weight: bold;
-	padding: 18px;
-	border: 1px solid #ccc;
-	text-align: center;
+	font-weight: bold; padding : 18px; border : 1px solid #ccc; text-align
+	: center;
 	background-color: #5696da;
+	text-align: center;
+	border: 1px solid #ccc;
+	padding: 18px;
 }
-
 </style>
 </head>
+
 <body>
 	<div id="welcome">
 		<h3>${user.name}님 환영합니다.</h3>
 	</div>
 	<div class="container">
-		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
-			class="logo-img">
+		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
 		<div class="menu-bar">
 			<div class="menu-bar-item">
@@ -116,12 +128,14 @@ table th {
 			<div class="menu-bar-item">
 				<a href="logout.do">로그아웃</a>
 			</div>
-			<div class="menu-bar-item">
-				<a href="insertBookPage.do">도서등록/삭제</a>
-			</div>
-			<div class="menu-bar-item">
-				<a href="getUserList.do">회원관리</a>
-			</div>
+			<c:if test="${user.role eq 'Admin'}">
+				<div class="menu-bar-item2">
+					<a href="insertBookPage.do">도서등록/삭제</a>
+				</div>
+				<div class="menu-bar-item2">
+					<a href="getUserList.do">회원관리</a>
+				</div>
+			</c:if>
 		</div>
 		<div class="table-container">
 			<table>

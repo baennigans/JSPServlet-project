@@ -20,7 +20,7 @@ public class SearchBookController implements Controller {
 		List<BookVO> bookList = dao.SearchBookList(vo);
 
 		request.setAttribute("bookList", bookList);
-		
+
 		return "getBookList.jsp";
 	}
 }

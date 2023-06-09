@@ -24,8 +24,8 @@ public class InsertUserController implements Controller {
 		UserDAO dao = new UserDAO();
 		dao.insertUser(vo);
 
-		if(id==null) {
-			return "insertUser.jsp";			
+		if (id == null) {
+			return "insertUser.jsp";
 		} else {
 			return "login.jsp?insert=success";
 		}
