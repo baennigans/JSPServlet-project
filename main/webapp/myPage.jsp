@@ -113,51 +113,50 @@ h3 {
 	background-color: #417cb8;
 }
 
-.mypage-table{
+.mypage-table {
 	padding-top: 40px;
 }
 
-#deleteUser{
+#deleteUser {
 	width: 100%;
 	padding: 15px;
 	margin-top: 40px;
 	font-size: 16px;
-	font-weight: bold;
-	text-decoration: none;
+	font-weight: bold; text-decoration : none;
 	background-color: #4CAF50;
 	color: #fff;
 	border: none;
 	border-radius: 3px;
+	font-weight: bold;
+	text-decoration: none;
+	text-decoration: none;
 }
 </style>
 <script>
-function checkForm() {
-	if(confirm("정보를 수정하시겠습니까?")){
-	    alert("수정되었습니다.");
-	    return true
-	}else{
-	    alert("수정이 취소되었습니다.");
-	    return false
+	function checkForm1() {
+		if (confirm("정보를 수정하시겠습니까?")) {
+			alert("수정되었습니다.");
+			return true
+		} else {
+			alert("수정이 취소되었습니다.");
+			return false
+		}
 	}
-}
 
-function deleteUser() {
-    if (confirm("정말로 회원탈퇴 하시겠습니까?")) {
-        var form = document.createElement("form");
-        form.action = "deleteUser.do";
-        form.method = "post";
-        document.body.appendChild(form);
-        form.submit();
-    	alert("탈퇴에 성공하였습니다. 안녕히가세요.")
-    }else{
-    	alert("탈퇴가 취소되었습니다.")
-    }
-}
+	function checkForm2() {
+		if (confirm("정말로 회원탈퇴 하시겠습니까?")) {
+			alert("탈퇴에 성공하였습니다. 안녕히가세요.")
+			return true
+		} else {
+			alert("탈퇴가 취소되었습니다.")
+			return false
+		}
+	}
 </script>
 </head>
 <body>
 	<div id="welcome">
-		<h3>${user.name}님 환영합니다.</h3>
+		<h3>${user.name}님환영합니다.</h3>
 	</div>
 	<div class="container">
 		<a href="home.do"> <img src="images/GHlogo.png" alt="도서관 로고"
@@ -185,10 +184,11 @@ function deleteUser() {
 		</div>
 		<div class="form-container">
 			<h1>마이페이지</h1>
-			<hr/>
-			<form action="updateUser.do" method="post" onsubmit="return checkForm()">
-				<input type="hidden" name="id" value="${user.id}"/>
-				<input type="hidden" name="role" value="${user.role}"/>
+			<hr />
+			<form action="updateUser.do" method="post"
+				onsubmit="return checkForm1()">
+				<input type="hidden" name="id" value="${user.id}" />
+				<input type="hidden" name="role" value="${user.role}" />
 				<table class="mypage-table">
 					<tr>
 						<td>아이디</td>
@@ -196,7 +196,8 @@ function deleteUser() {
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="text" name="password" value="${user.password}" /></td>
+						<td><input type="text" name="password"
+							value="${user.password}" /></td>
 					</tr>
 					<tr>
 						<td>이름</td>
@@ -204,14 +205,18 @@ function deleteUser() {
 					</tr>
 					<tr>
 						<td>권한</td>
-						<td><input type="text" name="role" value="${user.role}" disabled /></td>
+						<td><input type="text" name="role" value="${user.role}"
+							disabled /></td>
 					</tr>
 					<tr>
 						<td colspan="2"><input type="submit" value="정보 수정" /></td>
 					</tr>
 				</table>
 			</form>
-    		<input type="button" value="회원탈퇴" id="deleteUser" onclick="deleteUser()" />
+			<form action="deleteUser.do" method="post" onsubmit="return checkForm2()">
+				<input type="hidden" name="id" value="${user.id}" />
+				<input type="submit" value="회원탈퇴" id="deleteUser" />
+			</form>
 		</div>
 	</div>
 </body>

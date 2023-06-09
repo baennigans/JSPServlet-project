@@ -15,10 +15,10 @@ public class BookDAO {
 
 	private static String BOOK_INSERT = "insert into book(seq, isbn, title, writer, publisher, count) values"
 			+ "((select nvl(max(seq),0)+1, from book), ?, ?, ?, ?, ?)";
+	private static String BOOK_GET = "select * from book where seq=?";
 	private static String BOOK_LIST = "select * from book";
 	private static String BOOK_UPDATE = "update book set isbn=?, title=?, writer=?, publisher=?, count=? where seq=?";
 	private static String BOOK_DELETE = "delete book where isbn=?";
-	private static String BOOK_GET = "select * from book where seq=?";
 	private static String BOOK_SEARCH = "select * from book where title=?";
 
 	public void insertBook(BookVO vo) {
