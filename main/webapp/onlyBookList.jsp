@@ -83,26 +83,29 @@ table td, table th {
 			<table>
 				<tr>
 					<th>No.</th>
-					<th>TITLE</th>
-					<th>WRITER</th>
-					<th>DATE</th>
-					<th>Hit</th>
+					<th>ISBN</th>
+					<th>제목</th>
+					<th>저자</th>
+					<th>출판사</th>
+					<th>대여가능</th>
+					
 				</tr>
-				<c:forEach var="board" items="${boardList}">
+				<c:forEach var="book" items="${bookList}">
 					<tr>
-						<td>${board.seq}</td>
-						<td><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
-						<td>${board.writer}</td>
-						<td>${board.regDate}</td>
-						<td>${board.hit}</td>
+						<td>${book.seq}</td>
+						<td>${book.isbn}</td>
+						<td><a href="getBook.do?seq=${book.seq}">${book.title}</a></td>
+						<td>${book.writer}</td>
+						<td>${book.publisher}</td>
+						<td>${book.count}</td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 		<hr />
 		<div class="form-container">
-			<form action="onlyBoardList.do" method="post">
-				<input type="text" name="writer" placeholder="검색어를 입력하세요"> <input
+			<form action="onlyBookList.do" method="post">
+				<input type="text" name="title" placeholder="검색어를 입력하세요"> <input
 					type="submit" value="검색">
 			</form>
 		</div>

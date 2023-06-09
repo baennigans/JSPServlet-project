@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 
-public class InsertBoardPageController implements Controller {
+public class InsertBookPageController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		return "insertBoard.jsp";
+		return "insertBook.jsp";
 	}
 }

@@ -103,7 +103,7 @@ a {
 			<img src="images/GHlogo.png" alt="도서관 로고" class="logo-img">
 		</a>
 		<hr />
-		<h2>GH도서관 회원 로그인</h2>
+		<h2>GH도서관 로그인</h2>
 		<form action="login.do" method="post" onsubmit="return checkForm()">
 			<table>
 				<tr>

@@ -1,22 +1,22 @@
-package controller.board;
+package controller.book;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import biz.board.BoardDAO;
-import biz.board.BoardVO;
+import biz.book.BookDAO;
+import biz.book.BookVO;
 import controller.Controller;
 
-public class DeleteBoardController implements Controller {
+public class DeleteBookController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		String seq = request.getParameter("seq");
-		BoardVO vo = new BoardVO();
+		BookVO vo = new BookVO();
 		vo.setSeq(Integer.parseInt(seq));
 
-		BoardDAO dao = new BoardDAO();
-		dao.deleteBoard(vo);
+		BookDAO dao = new BookDAO();
+		dao.deleteBook(vo);
 
-		return "getBoardList.do";
+		return "getBookList.do";
 	}
 }

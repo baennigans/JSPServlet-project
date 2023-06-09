@@ -102,13 +102,13 @@ h3 {
 		</a>
 		<div class="menu-bar">
 			<div class="menu-bar-item">
-				<a href="getBoardList.do">전체 도서 목록</a>
+				<a href="getBookList.do">전체 도서 목록</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="#">도서 대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="insertBoardPage.do">도서 등록/삭제</a>
+				<a href="insertBookPage.do">도서 등록/삭제</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="myPage.do">회원관리</a>
