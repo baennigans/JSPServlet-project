@@ -181,7 +181,7 @@ h3 {
 				<a href="getBookList.do">전체 도서 목록</a>
 			</div>
 			<div class="menu-bar-item">
-				<a href="#">대여/반납</a>
+				<a href="rentBook.do">대여/반납</a>
 			</div>
 			<div class="menu-bar-item">
 				<a href="myPage.do">마이페이지</a>

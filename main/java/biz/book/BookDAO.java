@@ -23,6 +23,8 @@ public class BookDAO {
 	private static String BOOK_SEARCH_TITLE = "select * from book where title=? ";
 	private static String BOOK_SEARCH_WRITER = "select * from book where writer=? ";
 	private static String BOOK_SEARCH_PUBLISHER = "select * from book where publisher=? ";
+	private static String BOOK_BORROW = "update book set count=count-1 where seq=? ";
+	private static String BOOK_RETURN = "update book set count=count+1 where seq=? ";
 
 	public void insertBook(BookVO vo) {
 		try {
@@ -220,4 +222,47 @@ public class BookDAO {
 		}
 		return bookList;
 	}
+
+	public void borrowBook(BookVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOOK_BORROW);
+			stmt.setInt(1, vo.getSeq());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+
+	
+	public void returnBook(BookVO vo) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOOK_RETURN);
+			stmt.setInt(1, vo.getSeq());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

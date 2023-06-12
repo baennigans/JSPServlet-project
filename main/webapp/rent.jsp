@@ -24,7 +24,12 @@ body {
 .container {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 20px;
+	padding-bottom: 100px;
 	text-align: center;
+}
+
+h1 {
+	margin-bottom: 50px;
 }
 
 h3 {
@@ -72,60 +77,90 @@ h3 {
 	border-radius: 4px;
 }
 
-.table-container {
-	margin-top: 60px;
-}
-
-table {
-	table-layout: fixed;
-	width: 100%;
-	border-collapse: collapse;
-	font-family: "Arial", sans-serif;
-}
-
-table td {
-	font-size: 14px;
-	font-weight: normal;
-	padding: 10px;
-	border: 1px solid #ccc;
-	text-align: center;
-	background-color: #fff;
-}
-
-table th {
-	font-size: 14px;
-	font-weight: bold;
-	padding: 18px;
-	border: 1px solid #ccc;
-	text-align: center;
-	background-color: #5696da;
-}
-
 .form-container {
-	margin-top: 20px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 100px;
+	margin-right: 60px;
+	width: 400px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	padding: 20px;
 }
 
-.form-container input[type="text"] {
-	width: 400px;
+.form-container table {
+	width: 100%;
+}
+
+.form-container table td {
+	padding: 10px;
+}
+
+.form-container table td:first-child {
+	width: 100px;
+}
+
+.form-container input[type="text"], .form-container textarea {
+	width: 100%;
 	padding: 8px;
-	font-size: 16px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
 }
 
 .form-container input[type="submit"] {
-	margin-left: 10px;
 	padding: 8px 16px;
+	margin-top: 20px;
 	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
 	color: #fff;
-	background-color: #007bff;
+	background-color: #5696da;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
 }
+
+.form-container input[type="submit"]:hover {
+	background-color: #417cb8;
+}
+
+.borrowbook-table {
+	padding-top: 130px;
+	padding-bottom: 40px;
+}
+
+.returnbook-table {
+	padding-top: 130px;
+	padding-bottom: 40px;
+}
+
+#return, #borrow {
+	margin-top: 120px;
+}
 </style>
+
+<script>
+	function checkForm1() {
+		if (confirm("책을 대여하시겠습니까?")) {
+			return true
+		} else {
+			alert("대여 취소되었습니다.");
+			return false
+		}
+	}
+
+	function checkForm2() {
+		if (confirm("책을 반납하시겠습니까?")) {
+			return true
+		} else {
+			alert("반납 취소되었습니다.");
+			return false
+		}
+	}
+</script>
 </head>
 
 <body>
@@ -158,33 +193,34 @@ table th {
 				</div>
 			</c:if>
 		</div>
-		<div class="table-container">
-			<table>
-				<tr>
-					<th>No.</th>
-					<th>ISBN</th>
-					<th>제목</th>
-					<th>저자</th>
-					<th>출판사</th>
-					<th>대여가능</th>
-				</tr>
-				<c:forEach var="book" items="${bookList}">
-					<tr>
-						<td>${book.seq}</td>
-						<td>${book.isbn}</td>
-						<td>${book.title}</td>
-						<td>${book.writer}</td>
-						<td>${book.publisher}</td>
-						<td>${book.count}</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		<hr />
 		<div class="form-container">
-			<form action="searchBook.do" method="post">
-				<input type="text" name="word" placeholder="검색어를 입력하세요">
-				<input type="submit" value="검색">
+			<h1>도서 대여</h1>
+			<hr />
+			<form action="borrow.do" method="post" onsubmit="return checkForm1()">
+				<table class="borrowbook-table">
+					<tr>
+						<td>도서 No</td>
+						<td><input type="text" name="no" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="대여" id="borrow" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div class="form-container">
+			<h1>도서 반납</h1>
+			<hr />
+			<form action="return.do" method="post" onsubmit="return checkForm2()">
+				<table class="returnbook-table">
+					<tr>
+						<td>도서 No</td>
+						<td><input type="text" name="no" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="반납" id="return" /></td>
+					</tr>
+				</table>
 			</form>
 		</div>
 	</div>

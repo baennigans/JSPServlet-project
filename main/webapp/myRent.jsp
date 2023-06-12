@@ -140,17 +140,17 @@ table th {
 		<div class="table-container">
 			<table>
 				<tr>
-					<th>ID</th>
-					<th>비밀번호</th>
-					<th>이름</th>
-					<th>권한</th>
+					<th>NO.</th>
+					<th>ISBN</th>
+					<th>제목</th>
+					<th>저자</th>
 				</tr>
-				<c:forEach var="user" items="${userList}">
+				<c:forEach var="user" items="${rentList}">
 					<tr>
-						<td>${user.id}</td>
-						<td>${user.password}</td>
-						<td>${user.name}</td>
-						<td>${user.role}</td>
+						<td>${rent.seq}</td>
+						<td>${rent.isbn}</td>
+						<td>${rent.title}</td>
+						<td>${rent.writer}</td>
 					</tr>
 				</c:forEach>
 			</table>

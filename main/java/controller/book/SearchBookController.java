@@ -1,5 +1,6 @@
 package controller.book;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,15 @@ import controller.Controller;
 public class SearchBookController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String word = request.getParameter("word");
+		String paraword = request.getParameter("word");
+		String word = null;
+		
+		try {
+            word = new String(paraword.getBytes("ISO-8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+		
 		BookVO vo = new BookVO();
 		vo.setIsbn(word);
 		vo.setTitle(word);

@@ -13,11 +13,13 @@ public class OnlySearchBookController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		String word = request.getParameter("word");
+
 		BookVO vo = new BookVO();
 		vo.setIsbn(word);
 		vo.setTitle(word);
 		vo.setWriter(word);
 		vo.setPublisher(word);
+		
 
 		BookDAO dao = new BookDAO();
 		List<BookVO> bookList1 = dao.SearchBookList1(vo);

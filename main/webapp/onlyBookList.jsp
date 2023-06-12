@@ -103,7 +103,7 @@ table th {
 					<tr>
 						<td>${book.seq}</td>
 						<td>${book.isbn}</td>
-						<td><a href="getBook.do?seq=${book.seq}">${book.title}</a></td>
+						<td>${book.title}</td>
 						<td>${book.writer}</td>
 						<td>${book.publisher}</td>
 						<td>${book.count}</td>
